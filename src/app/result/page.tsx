@@ -1,10 +1,10 @@
 "use client";
 
-import Button from "../../components/button";
-import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
+import Link from "next/link";
 import { tarotQuery } from "@/api/query";
 import Message from "@/components/message";
+import Button from "../../components/button";
 
 export default function Page() {
   const executeTarotQuery = useQuery(tarotQuery.execute);

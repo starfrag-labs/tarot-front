@@ -1,11 +1,11 @@
 "use client";
 
-import { normalRetryCount, normalStaleTime } from "@/api/query";
 import {
   isServer,
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
+import { normalRetryCount, normalStaleTime } from "@/api/query";
 
 function makeQueryClient() {
   return new QueryClient({
@@ -18,7 +18,7 @@ function makeQueryClient() {
   });
 }
 
-let browserQueryClient: QueryClient | undefined = undefined;
+let browserQueryClient: QueryClient | undefined;
 
 function getQueryClient() {
   if (isServer) {

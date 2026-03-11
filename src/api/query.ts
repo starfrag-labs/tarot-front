@@ -1,6 +1,6 @@
 import { queryOptions } from "@tanstack/react-query";
+import type { QueryError } from "@/interfaces/api";
 import { api } from "./fetch";
-import { QueryError } from "@/interfaces/api";
 
 export const normalRetryCount = 2;
 export const normalStaleTime = 1000 * 60 * 10;

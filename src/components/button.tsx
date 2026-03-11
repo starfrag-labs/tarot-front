@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { memo, MouseEventHandler } from "react";
+import { type MouseEventHandler, memo } from "react";
 
 export default memo(function Button({
   href,
@@ -7,11 +7,12 @@ export default memo(function Button({
   children,
 }: {
   href?: string;
-  onClick?: MouseEventHandler<HTMLDivElement> | undefined;
+  onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
   children: React.ReactNode;
 }) {
   return (
-    <div
+    <button
+      type="button"
       onClick={onClick}
       className="block w-20 h-11 bg-black shadow-custom-button text-white content-center text-center rounded-lg"
     >
@@ -22,6 +23,6 @@ export default memo(function Button({
       ) : (
         children
       )}
-    </div>
+    </button>
   );
 });

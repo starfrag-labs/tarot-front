@@ -1,12 +1,17 @@
 "use client";
 
 import { useCallback, useRef, useState } from "react";
+import Card from "@/components/card/card";
 import Button from "../../components/button";
 import Message from "../../components/message";
-import Card from "@/components/card/card";
+
+const SIDE_CARD_COUNT = 9;
+const SIDE_CARD_KEYS = Array.from(
+  { length: SIDE_CARD_COUNT },
+  (_, i) => `side-card-${i}`,
+);
 
 export default function Page() {
-  const cardCount = 21;
   const animationDelay = 100;
 
   const [cardSelected, setCardSelected] = useState(false);
@@ -163,9 +168,29 @@ export default function Page() {
     [generateMoveInterval],
   );
 
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (animation) return;
+      const speed = 300;
+      if (e.key === "ArrowLeft") {
+        moveLeft(speed);
+      } else if (e.key === "ArrowRight") {
+        moveRight(speed);
+      } else if (e.key === "Enter" || e.key === " ") {
+        if (!cardSelected) {
+          activateCardSelected();
+        }
+      }
+    },
+    [animation, moveLeft, moveRight, cardSelected, activateCardSelected],
+  );
+
   return (
     <div
       className="grid grid-rows-[1fr_2fr_1fr] items-center w-full pt-20 pb-20 gap-16 font-flower-island overflow-x-hidden min-h-screen select-none"
+      role="application"
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
       onClick={(e) => {
         // prevent multiple clicks
         if (!animation && !cardSelected) {
@@ -184,7 +209,7 @@ export default function Page() {
     >
       <div>
         {cardSelected ? (
-          <Message message="이 카드로 선택하시겠습니까?\n" />
+          <Message message="이 카드로 선택하시겠습니까?" />
         ) : (
           <Message message="화면을 눌러 카드를 선택을 시작해주세요." />
         )}
@@ -194,8 +219,8 @@ export default function Page() {
         className="flex flex-row h-full flex-center gap-5 py-5"
         ref={cardsRef}
       >
-        {Array.from({ length: (cardCount - 2) / 2 }).map((_, index) => (
-          <Card key={index} width={120} isMini scaleAnimation />
+        {SIDE_CARD_KEYS.map((key) => (
+          <Card key={key} width={120} isMini scaleAnimation />
         ))}
         <Card ref={prevCardRef} width={120} isMini scaleAnimation />
         <Card
@@ -208,8 +233,8 @@ export default function Page() {
           scaleAnimation
         />
         <Card ref={nextCardRef} width={120} isMini scaleAnimation />
-        {Array.from({ length: (cardCount - 2) / 2 }).map((_, index) => (
-          <Card key={index} width={120} isMini scaleAnimation />
+        {SIDE_CARD_KEYS.map((key) => (
+          <Card key={`next-${key}`} width={120} isMini scaleAnimation />
         ))}
       </div>
       <div className="w-full">
