@@ -1,7 +1,71 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+/* ================================
+   Theme: Design Tokens
+================================ */
+@theme {
+  /* Background Images */
+  --background-image-stars-img: url("/stars.webp");
+  --background-image-result-card-img: url("/result_card.png");
+  --background-image-card-front: url("/cardx1.png");
+  --background-image-card-back: url("/cardx1.png");
+
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Fonts */
+  --font-flower-island: var(--font-flower-island);
+  --font-kopub-batang: var(--font-kopub-batang);
+
+  /* Box Shadows */
+  --shadow-card-mini: 2px 12px 20px 0px #e3fff840;
+  --shadow-card: 0px 0px 15px 0px #e3fff8b2;
+  --shadow-custom-button: 0 4px 4px 0 #000000, inset 0 0 15px 0 #e3fff8;
+
+  /* Sizing */
+  --width-result-card-width: 300px;
+  --height-result-card-height: 477px;
+
+  /* Animations */
+  --animate-card-scale: card-scale 1s ease-in-out;
+  --animate-fade-in: fade-in 1s;
+  --animate-fade-out: fade-out 1s;
+
+  @keyframes card-scale {
+    0% {
+      transform: scale(0);
+    }
+    70% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
+
+/* ================================
+   CSS Variables & Dark Mode
+================================ */
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -14,12 +78,18 @@
   }
 }
 
+/* ================================
+   Base Styles
+================================ */
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* ================================
+   Scrollbar
+================================ */
 ::-webkit-scrollbar {
   width: 3px;
   height: 3px;
@@ -34,4 +104,93 @@ body {
 
 ::-webkit-scrollbar-track {
   border-radius: 10px;
+}
+
+/* ================================
+   Custom Utilities
+================================ */
+@utility card {
+  display: block;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 488px;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+@utility card-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@utility card-inner-front {
+  background-image: url("/cardx1.png");
+  backface-visibility: hidden;
+}
+
+@utility card-inner-back {
+  background-image: url("/result_card.png");
+}
+
+@utility text-white-stroke {
+  text-shadow:
+    0 0 0.4px #ffffff,
+    0 0 0.4px #ffffff,
+    0 0 0.4px #ffffff;
+}
+
+@utility text-white-bold-stroke {
+  text-shadow:
+    0 0 1px #ffffff,
+    0 0 1px #ffffff,
+    0 0 1px #ffffff;
+}
+
+@utility text-cyan-stroke {
+  text-shadow:
+    0 0 0.4px #d2f9ff,
+    0 0 0.4px #d2f9ff,
+    0 0 0.4px #d2f9ff;
+}
+
+@utility text-gray-stroke {
+  text-shadow:
+    0 0 0.4px #ebebeb,
+    0 0 0.4px #ebebeb,
+    0 0 0.4px #ebebeb;
+}
+
+@utility full-size {
+  width: 100%;
+  height: 100%;
+}
+
+@utility flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@utility scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

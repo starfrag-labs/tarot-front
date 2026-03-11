@@ -43,15 +43,17 @@ export const api = {
       ok: boolean;
       status: number;
       headers: Headers;
-      body: {
-        message: string;
-        data: {
-          title: string;
-          titleKR: string;
-          keywords: string[];
-          advice: string;
-        };
-      } | undefined;
+      body:
+        | {
+            message: string;
+            data: {
+              title: string;
+              titleKR: string;
+              keywords: string[];
+              advice: string;
+            };
+          }
+        | undefined;
     }> => {
       if (process.env.NODE_ENV === "development") {
         // wait for 1 second to simulate network delay

@@ -1,5 +1,10 @@
 import Image from "next/image";
-import { CSSProperties, forwardRef, memo, MouseEventHandler } from "react";
+import {
+  type CSSProperties,
+  forwardRef,
+  type MouseEventHandler,
+  memo,
+} from "react";
 
 export default memo(
   forwardRef<
