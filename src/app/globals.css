@@ -147,34 +147,6 @@ body {
   background-image: url("/result_card.png");
 }
 
-@utility text-white-stroke {
-  text-shadow:
-    0 0 0.4px #ffffff,
-    0 0 0.4px #ffffff,
-    0 0 0.4px #ffffff;
-}
-
-@utility text-white-bold-stroke {
-  text-shadow:
-    0 0 1px #ffffff,
-    0 0 1px #ffffff,
-    0 0 1px #ffffff;
-}
-
-@utility text-cyan-stroke {
-  text-shadow:
-    0 0 0.4px #d2f9ff,
-    0 0 0.4px #d2f9ff,
-    0 0 0.4px #d2f9ff;
-}
-
-@utility text-gray-stroke {
-  text-shadow:
-    0 0 0.4px #ebebeb,
-    0 0 0.4px #ebebeb,
-    0 0 0.4px #ebebeb;
-}
-
 @utility full-size {
   width: 100%;
   height: 100%;

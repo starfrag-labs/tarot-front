@@ -100,18 +100,6 @@ export default {
         ".card-inner-back": {
           backgroundImage: "url('/result_card.png')",
         },
-        ".text-white-stroke": {
-          textShadow: "0 0 0.4px #FFFFFF, 0 0 0.4px #FFFFFF, 0 0 0.4px #FFFFFF",
-        },
-        ".text-white-bold-stroke": {
-          textShadow: "0 0 1px #FFFFFF, 0 0 1px #FFFFFF, 0 0 1px #FFFFFF",
-        },
-        ".text-cyan-stroke": {
-          textShadow: "0 0 0.4px #D2F9FF, 0 0 0.4px #D2F9FF, 0 0 0.4px #D2F9FF",
-        },
-        ".text-gray-stroke": {
-          textShadow: "0 0 0.4px #EBEBEB, 0 0 0.4px #EBEBEB, 0 0 0.4px #EBEBEB",
-        },
         ".full-size": {
           width: "100%",
           height: "100%",
