@@ -42,14 +42,11 @@ export default function Page() {
               </div>
               <p className="flex flex-col gap-3 w-full overflow-x-clip overflow-y-scroll whitespace-break-spaces text-center text-white h-result-description-height">
                 {executeTarotQuery.data?.data.advice}
-                <Link href={"/"} className="underline underline-offset-4">
-                  돌아가기
-                </Link>
               </p>
             </div>
           </div>
         </div>
-        <Button>SHARE</Button>
+        <Button href="/">BACK</Button>
       </div>
     );
   }
