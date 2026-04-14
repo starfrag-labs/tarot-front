@@ -13,7 +13,7 @@ export default memo(function Message({
     <div
       ref={messageRef}
       style={{ display: visible ? "block" : "none" }}
-      className="font-flower-island text-lg sm:text-xl px-4 text-white-stroke animate-fade-in"
+      className="font-flower-island text-lg sm:text-xl px-4 text-white animate-fade-in"
     >
       {message.split("\n").map((line, lineNumber) => (
         <p key={`${lineNumber}-${line}`} className="text-center">
