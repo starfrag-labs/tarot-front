@@ -1,7 +1,6 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import Link from "next/link";
 import { tarotQuery } from "@/api/query";
 import Message from "@/components/message";
 import Button from "../../components/button";
@@ -29,17 +28,13 @@ export default function Page() {
           <div className="h-7 border-l border-white my-1"></div>
           <div className="flex flex-col w-full overflow-y-hidden gap-7">
             <div className="flex flex-col flex-center gap-1">
-              <div className="text-[#D2F9FF] text-lg capitalize">
-                keywords
-              </div>
+              <div className="text-[#D2F9FF] text-lg capitalize">keywords</div>
               <ul className="flex flex-row flex-center w-full text-[#EBEBEB] whitespace-normal text-center">
                 {executeTarotQuery.data?.data.keywords.join(", ")}
               </ul>
             </div>
             <div className="flex-center flex-col w-full overflow-y-hidden gap-1">
-              <div className="text-[#D2F9FF] text-lg capitalize">
-                advices
-              </div>
+              <div className="text-[#D2F9FF] text-lg capitalize">advices</div>
               <p className="flex flex-col gap-3 w-full overflow-x-clip overflow-y-scroll whitespace-break-spaces text-center text-white h-result-description-height">
                 {executeTarotQuery.data?.data.advice}
               </p>
